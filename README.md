@@ -10,8 +10,30 @@ In this repository we will have some basic examples how to use the mongodb datab
 db.collection.find(<criteria>,<projection>)
 ```
 
+##For serching and sorting 
 
-|Parameter|Type|Description|
-----------------------------
-|criteria|document|	Optional. Specifies selection criteria using query operators. To return all documents in a collection, omit this parameter or pass an empty document ({})|
-|projection|document|Optional. Specifies the fields to return using projection operators. To return all fields in the matching document, omit this parameter.|
+```
+db.collection.find().sort({page : 1}) 
+```
+ 1 -> ascending order
+-1 -> desending order
+
+
+##Basic concep of indexing in mongo db
+
+How to create an index
+
+db.parts.ensureIndex({ page: 1})
+
+ensureIndex -> create index if it dosen't exsist
+
+
+##Notes on indexes 
+
+- keys can be any type
+- _id index is automatic(unic)
+- other than _id, explicity declared
+- automaticaly used
+- can index array contant(multi keys)
+- can index nested subdocuments and subfields
+- fielsname are not in the indexes
